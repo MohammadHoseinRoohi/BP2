@@ -80,7 +80,9 @@ app.MapPut("api/v2/books/update/{guid}", (
         Message = "Books Update!"
     };
 });
-app.MapDelete("api/v2/books/remove/{guid}", ([FromRoute] string guid, [FromServices] LibraryDB db) =>
+app.MapDelete("api/v2/books/remove/{guid}", (
+    [FromRoute] string guid,
+    [FromServices] LibraryDB db) =>
 {
     var book = db.Books.FirstOrDefault(m => m.Guid == guid);
     if (book == null)
@@ -99,10 +101,6 @@ app.MapDelete("api/v2/books/remove/{guid}", ([FromRoute] string guid, [FromServi
         Message = "Books Remove!"
     };
 });
-
-
-
-
 app.MapGet("api/v2/members/list", ([FromServices] LibraryDB db) =>
 {
     return db.Members.Select(m => new MemberListDto
@@ -150,7 +148,9 @@ app.MapPut("api/v2/members/update/{guid}", (
     db.SaveChanges();
     return "Members Updated";
 });
-app.MapDelete("api/v2/members/remove/{guid}", ([FromRoute] string guid, [FromServices] LibraryDB db) =>
+app.MapDelete("api/v2/members/remove/{guid}", (
+    [FromRoute] string guid,
+    [FromServices] LibraryDB db) =>
 {
     var member = db.Members.FirstOrDefault(m=> m.Guid == guid);
     if (member == null)
