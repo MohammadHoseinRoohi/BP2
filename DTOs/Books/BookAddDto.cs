@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Practice2.Entities.Base;
 
-namespace Practice2.Entities
+namespace Practice2.DTOs.Books
 {
-    public class Book : Thing
+    public class BookAddDto
     {
         public required string Title { get; set; }
         public required string Writer { get; set; }

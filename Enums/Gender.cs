@@ -3,6 +3,7 @@ namespace Practice2.Enums
     public enum Gender
     {
         Male,
-        Female
+        Female,
+        None
     }
 }
